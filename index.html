@@ -35,8 +35,8 @@
 
     .main-logo {
       width: 100%;
-      max-width: 500px;
-      margin: 5px auto 25px;
+      max-width: 280px;
+      margin: 5px auto 22px;
       text-align: center;
     }
 
@@ -50,14 +50,21 @@
 
     .intro {
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
 
     .intro p {
+      display: inline-block;
       margin: 0;
-      color: #888;
-      font-size: 13px;
-      letter-spacing: 0.5px;
+      padding: 11px 18px;
+      border: 1px solid #c9e6e3;
+      border-radius: 999px;
+      background: #eef8f7;
+      color: #185e5b;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.2px;
     }
 
     /* STRUCTURE DIAGRAM */
@@ -134,6 +141,12 @@
       line-height: 1.5;
       color: #333;
     }
+
+    /* BASE DIRECTORS */
+    .base-directors { margin: 24px auto 0; text-align: center; }
+    .base-directors h2 { margin: 0 0 10px; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #666; }
+    .base-directors ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 8px 24px; flex-wrap: wrap; }
+    .base-directors li { font-size: 16px; font-weight: 600; line-height: 1.5; color: #333; }
 
     /* DETAILS */
 
@@ -223,6 +236,7 @@
       }
 
       .main-logo {
+        max-width: 240px;
         margin-bottom: 20px;
       }
 
@@ -268,7 +282,7 @@
     <div class="diagram-container">
 
       <img
-        src="structure.png"
+        src="structure-ywamla.png"
         alt="YWAM LA Structure"
       >
 
@@ -297,6 +311,14 @@
     <div class="vision">
       A dynamic movement of Jesus messengers for LA and the Nations
     </div>
+
+    <section class="base-directors" aria-labelledby="directors-title">
+      <h2 id="directors-title">Base Directors</h2>
+      <ul>
+        <li>Fabio Pelacio</li>
+        <li>Felipe Duarte</li>
+      </ul>
+    </section>
 
   </main>
 
