@@ -50,6 +50,8 @@
       font-size: 14px;
     }
 
+    /* DIAGRAM */
+
     .diagram-container {
       position: relative;
       width: 100%;
@@ -64,12 +66,7 @@
       -webkit-user-select: none;
     }
 
-    /*
-      CLICKABLE AREAS
-
-      These transparent buttons sit over
-      the original image.
-    */
+    /* INVISIBLE CLICKABLE AREAS */
 
     .hotspot {
       position: absolute;
@@ -81,11 +78,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /*
-      UofN
-      Red band running from upper center
-      toward lower right.
-    */
+    /* UofN */
 
     .hotspot-uofn {
       top: 0%;
@@ -96,10 +89,7 @@
       border-radius: 45%;
     }
 
-    /*
-      GO
-      Orange band on left.
-    */
+    /* GO */
 
     .hotspot-go {
       top: 19%;
@@ -110,10 +100,7 @@
       border-radius: 45%;
     }
 
-    /*
-      CAMPUS
-      Teal band across bottom.
-    */
+    /* CAMPUS */
 
     .hotspot-campus {
       top: 63%;
@@ -123,13 +110,27 @@
       border-radius: 45%;
     }
 
-    .instruction {
-      margin-top: 18px;
+    /* VISION */
+
+    .vision {
+      margin: 28px auto 10px;
+      max-width: 430px;
+      padding: 25px 20px 5px;
+      border-top: 1px solid #e8e8e8;
       text-align: center;
-      color: #888;
-      font-size: 13px;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: #333;
     }
 
+    .instruction {
+      margin-top: 24px;
+      text-align: center;
+      color: #999;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
 
     /* DETAILS */
 
@@ -141,16 +142,12 @@
       display: inline-flex;
       align-items: center;
       min-height: 44px;
-
       border: none;
       background: none;
-
       padding: 0;
       margin-bottom: 25px;
-
       font-size: 16px;
       font-weight: 600;
-
       cursor: pointer;
     }
 
@@ -171,7 +168,6 @@
       font-size: 14px;
     }
 
-
     /* AREA COLORS */
 
     .uofn-color {
@@ -188,7 +184,6 @@
       background: #239d9b;
       color: white;
     }
-
 
     /* DEPARTMENTS */
 
@@ -216,7 +211,6 @@
       color: #666;
     }
 
-
     /* PHONE */
 
     @media (max-width: 420px) {
@@ -229,47 +223,41 @@
         font-size: 22px;
       }
 
+      .vision {
+        font-size: 18px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
       .area-header h2 {
         font-size: 34px;
       }
-
     }
 
   </style>
 </head>
 
-
 <body>
 
 <div class="app">
-
 
   <!-- HOME -->
 
   <main id="home">
 
     <div class="header">
-
       <h1>YWAM LA</h1>
-
-      <p>
-        Tap an area to explore
-      </p>
-
+      <p>Tap an area to explore</p>
     </div>
 
-
     <div class="diagram-container">
-
-      <!-- YOUR ORIGINAL DIAGRAM -->
 
       <img
         src="structure.png"
         alt="YWAM LA integrated structure showing UofN, GO and Campus"
       >
 
-
-      <!-- CLICKABLE UofN -->
+      <!-- UofN -->
 
       <button
         class="hotspot hotspot-uofn"
@@ -277,8 +265,7 @@
         onclick="openArea('UofN')">
       </button>
 
-
-      <!-- CLICKABLE GO -->
+      <!-- GO -->
 
       <button
         class="hotspot hotspot-go"
@@ -286,8 +273,7 @@
         onclick="openArea('GO')">
       </button>
 
-
-      <!-- CLICKABLE CAMPUS -->
+      <!-- CAMPUS -->
 
       <button
         class="hotspot hotspot-campus"
@@ -297,13 +283,17 @@
 
     </div>
 
+    <!-- VISION -->
+
+    <div class="vision">
+      A dynamic movement of Jesus messengers for LA and the Nations
+    </div>
 
     <div class="instruction">
       UofN • GO • Campus
     </div>
 
   </main>
-
 
 
   <!-- AREA DETAILS -->
@@ -316,7 +306,6 @@
       ← Structure
     </button>
 
-
     <div
       id="areaHeader"
       class="area-header">
@@ -327,19 +316,15 @@
 
     </div>
 
-
     <p class="section-label">
       RESPONSIBILITIES
     </p>
-
 
     <div id="departmentList"></div>
 
   </section>
 
-
 </div>
-
 
 
 <script>
@@ -433,7 +418,6 @@ const areas = {
 };
 
 
-
 function openArea(areaName) {
 
   const area = areas[areaName];
@@ -442,39 +426,30 @@ function openArea(areaName) {
 
   document.getElementById("details").style.display = "block";
 
-
   document.getElementById("areaTitle").textContent =
     areaName;
-
 
   document.getElementById("areaSubtitle").textContent =
     area.subtitle;
 
-
   const header =
     document.getElementById("areaHeader");
-
 
   header.className =
     "area-header " + area.color;
 
-
   const list =
     document.getElementById("departmentList");
 
-
   list.innerHTML = "";
-
 
   area.departments.forEach(function(item) {
 
     const department =
       document.createElement("div");
 
-
     department.className =
       "department";
-
 
     department.innerHTML = `
 
@@ -488,19 +463,12 @@ function openArea(areaName) {
 
     `;
 
-
     list.appendChild(department);
 
   });
 
-
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
-
+  window.scrollTo(0, 0);
 }
-
 
 
 function goHome() {
@@ -508,20 +476,13 @@ function goHome() {
   document.getElementById("details").style.display =
     "none";
 
-
   document.getElementById("home").style.display =
     "block";
 
-
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
-
+  window.scrollTo(0, 0);
 }
 
 </script>
-
 
 </body>
 </html>
