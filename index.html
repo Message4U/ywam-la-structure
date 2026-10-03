@@ -28,29 +28,39 @@
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
-      padding: 24px 16px 50px;
+      padding: 22px 16px 50px;
     }
 
-    /* HOME */
+    /* YWAM LA LOGO */
 
-    .header {
+    .main-logo {
+      width: 100%;
+      max-width: 500px;
+      margin: 5px auto 25px;
       text-align: center;
-      margin-bottom: 18px;
     }
 
-    .header h1 {
+    .main-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* INTRO */
+
+    .intro {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .intro p {
       margin: 0;
-      font-size: 25px;
-      letter-spacing: 2px;
+      color: #888;
+      font-size: 13px;
+      letter-spacing: 0.5px;
     }
 
-    .header p {
-      margin: 7px 0 0;
-      color: #777;
-      font-size: 14px;
-    }
-
-    /* DIAGRAM */
+    /* STRUCTURE DIAGRAM */
 
     .diagram-container {
       position: relative;
@@ -66,7 +76,7 @@
       -webkit-user-select: none;
     }
 
-    /* INVISIBLE CLICKABLE AREAS */
+    /* CLICKABLE AREAS */
 
     .hotspot {
       position: absolute;
@@ -113,23 +123,16 @@
     /* VISION */
 
     .vision {
-      margin: 28px auto 10px;
-      max-width: 430px;
-      padding: 25px 20px 5px;
+      max-width: 460px;
+      margin: 24px auto 0;
+      padding: 24px 20px 0;
       border-top: 1px solid #e8e8e8;
+
       text-align: center;
       font-size: 19px;
       font-weight: 600;
-      line-height: 1.45;
+      line-height: 1.5;
       color: #333;
-    }
-
-    .instruction {
-      margin-top: 24px;
-      text-align: center;
-      color: #999;
-      font-size: 12px;
-      letter-spacing: 1px;
     }
 
     /* DETAILS */
@@ -185,7 +188,7 @@
       color: white;
     }
 
-    /* DEPARTMENTS */
+    /* RESPONSIBILITIES */
 
     .section-label {
       margin: 0 0 8px;
@@ -211,22 +214,22 @@
       color: #666;
     }
 
-    /* PHONE */
+    /* MOBILE */
 
     @media (max-width: 420px) {
 
       .app {
-        padding: 20px 12px 40px;
+        padding: 18px 12px 40px;
       }
 
-      .header h1 {
-        font-size: 22px;
+      .main-logo {
+        margin-bottom: 20px;
       }
 
       .vision {
         font-size: 18px;
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 15px;
+        padding-right: 15px;
       }
 
       .area-header h2 {
@@ -245,19 +248,29 @@
 
   <main id="home">
 
-    <div class="header">
-      <h1>YWAM LA</h1>
+    <!-- YWAM LA LOGO -->
+
+    <div class="main-logo">
+      <img
+        src="ywma_la_new_logo_horizontal.png"
+        alt="YWAM LA"
+      >
+    </div>
+
+    <!-- INSTRUCTION -->
+
+    <div class="intro">
       <p>Tap an area to explore</p>
     </div>
+
+    <!-- STRUCTURE -->
 
     <div class="diagram-container">
 
       <img
         src="structure.png"
-        alt="YWAM LA integrated structure showing UofN, GO and Campus"
+        alt="YWAM LA Structure"
       >
-
-      <!-- UofN -->
 
       <button
         class="hotspot hotspot-uofn"
@@ -265,15 +278,11 @@
         onclick="openArea('UofN')">
       </button>
 
-      <!-- GO -->
-
       <button
         class="hotspot hotspot-go"
         aria-label="Open GO"
         onclick="openArea('GO')">
       </button>
-
-      <!-- CAMPUS -->
 
       <button
         class="hotspot hotspot-campus"
@@ -289,14 +298,10 @@
       A dynamic movement of Jesus messengers for LA and the Nations
     </div>
 
-    <div class="instruction">
-      UofN • GO • Campus
-    </div>
-
   </main>
 
 
-  <!-- AREA DETAILS -->
+  <!-- DETAILS -->
 
   <section id="details">
 
@@ -311,7 +316,6 @@
       class="area-header">
 
       <h2 id="areaTitle"></h2>
-
       <p id="areaSubtitle"></p>
 
     </div>
@@ -338,19 +342,13 @@ const areas = {
     color: "uofn-color",
 
     departments: [
-
       ["DTS", "Laura Butcher"],
-
       ["DBS", "Ane / Luciano"],
-
       ["Mission Adventures", "Higor / Carol"],
-
       ["Bible / Online BCC", "Patrick"]
-
     ]
 
   },
-
 
   GO: {
 
@@ -359,25 +357,16 @@ const areas = {
     color: "go-color",
 
     departments: [
-
       ["GO28+", "Fabio / Ana / Kristen"],
-
       ["Hollywood", "Kristen"],
-
       ["Venice", "Team"],
-
       ["Neighborhood", "Team"],
-
       ["OBT / Jesus Film", "Luciano / Ane"],
-
       ["Justice for the Unborn", "Helena"],
-
       ["Global Partners", "Designated Staff"]
-
     ]
 
   },
-
 
   Campus: {
 
@@ -386,31 +375,18 @@ const areas = {
     color: "campus-color",
 
     departments: [
-
       ["Member Care", "Ane / Adriana Costa"],
-
       ["Hospitality", "Ana"],
-
       ["Guest House", "Juliana"],
-
       ["Housing", "Juliana"],
-
       ["Facilities", "Paul"],
-
       ["Maintenance", "Paul Bertelsen"],
-
       ["Grounds", "Simeon"],
-
       ["Ship-Shape", "Simeon"],
-
       ["Transportation", "Simeon"],
-
       ["Kitchen", "Marcelo / Joana / Ana"],
-
       ["Reception", "Ann Marie"],
-
       ["Coffee Shop", "Mary"]
-
     ]
 
   }
@@ -423,7 +399,6 @@ function openArea(areaName) {
   const area = areas[areaName];
 
   document.getElementById("home").style.display = "none";
-
   document.getElementById("details").style.display = "block";
 
   document.getElementById("areaTitle").textContent =
@@ -452,7 +427,6 @@ function openArea(areaName) {
       "department";
 
     department.innerHTML = `
-
       <div class="department-name">
         ${item[0]}
       </div>
@@ -460,7 +434,6 @@ function openArea(areaName) {
       <div class="department-person">
         ${item[1]}
       </div>
-
     `;
 
     list.appendChild(department);
