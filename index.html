@@ -1,1 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
 
+  <title>YWAM LA Structure</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 24px 16px 50px;
+    }
+
+    /* HOME */
+
+    .header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
+
+    .header p {
+      margin: 7px 0 0;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .diagram-container {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .diagram-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /*
+      CLICKABLE AREAS
+
+      These transparent buttons sit over
+      the original image.
+    */
+
+    .hotspot {
+      position: absolute;
+      display: block;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      z-index: 10;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /*
+      UofN
+      Red band running from upper center
+      toward lower right.
+    */
+
+    .hotspot-uofn {
+      top: 0%;
+      left: 38%;
+      width: 47%;
+      height: 68%;
+      transform: rotate(-20deg);
+      border-radius: 45%;
+    }
+
+    /*
+      GO
+      Orange band on left.
+    */
+
+    .hotspot-go {
+      top: 19%;
+      left: 3%;
+      width: 43%;
+      height: 70%;
+      transform: rotate(18deg);
+      border-radius: 45%;
+    }
+
+    /*
+      CAMPUS
+      Teal band across bottom.
+    */
+
+    .hotspot-campus {
+      top: 63%;
+      left: 26%;
+      width: 70%;
+      height: 29%;
+      border-radius: 45%;
+    }
+
+    .instruction {
+      margin-top: 18px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+
+
+    /* DETAILS */
+
+    #details {
+      display: none;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+
+      border: none;
+      background: none;
+
+      padding: 0;
+      margin-bottom: 25px;
+
+      font-size: 16px;
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+    .area-header {
+      padding: 25px 22px;
+      border-radius: 22px;
+      margin-bottom: 25px;
+    }
+
+    .area-header h2 {
+      margin: 0;
+      font-size: 38px;
+      letter-spacing: -1px;
+    }
+
+    .area-header p {
+      margin: 7px 0 0;
+      font-size: 14px;
+    }
+
+
+    /* AREA COLORS */
+
+    .uofn-color {
+      background: #d94b2b;
+      color: white;
+    }
+
+    .go-color {
+      background: #f5a623;
+      color: white;
+    }
+
+    .campus-color {
+      background: #239d9b;
+      color: white;
+    }
+
+
+    /* DEPARTMENTS */
+
+    .section-label {
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #999;
+      letter-spacing: 1.5px;
+    }
+
+    .department {
+      padding: 18px 3px;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    .department-name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .department-person {
+      margin-top: 6px;
+      font-size: 15px;
+      color: #666;
+    }
+
+
+    /* PHONE */
+
+    @media (max-width: 420px) {
+
+      .app {
+        padding: 20px 12px 40px;
+      }
+
+      .header h1 {
+        font-size: 22px;
+      }
+
+      .area-header h2 {
+        font-size: 34px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+  <!-- HOME -->
+
+  <main id="home">
+
+    <div class="header">
+
+      <h1>YWAM LA</h1>
+
+      <p>
+        Tap an area to explore
+      </p>
+
+    </div>
+
+
+    <div class="diagram-container">
+
+      <!-- YOUR ORIGINAL DIAGRAM -->
+
+      <img
+        src="structure.png"
+        alt="YWAM LA integrated structure showing UofN, GO and Campus"
+      >
+
+
+      <!-- CLICKABLE UofN -->
+
+      <button
+        class="hotspot hotspot-uofn"
+        aria-label="Open UofN"
+        onclick="openArea('UofN')">
+      </button>
+
+
+      <!-- CLICKABLE GO -->
+
+      <button
+        class="hotspot hotspot-go"
+        aria-label="Open GO"
+        onclick="openArea('GO')">
+      </button>
+
+
+      <!-- CLICKABLE CAMPUS -->
+
+      <button
+        class="hotspot hotspot-campus"
+        aria-label="Open Campus"
+        onclick="openArea('Campus')">
+      </button>
+
+    </div>
+
+
+    <div class="instruction">
+      UofN • GO • Campus
+    </div>
+
+  </main>
+
+
+
+  <!-- AREA DETAILS -->
+
+  <section id="details">
+
+    <button
+      class="back-button"
+      onclick="goHome()">
+      ← Structure
+    </button>
+
+
+    <div
+      id="areaHeader"
+      class="area-header">
+
+      <h2 id="areaTitle"></h2>
+
+      <p id="areaSubtitle"></p>
+
+    </div>
+
+
+    <p class="section-label">
+      RESPONSIBILITIES
+    </p>
+
+
+    <div id="departmentList"></div>
+
+  </section>
+
+
+</div>
+
+
+
+<script>
+
+const areas = {
+
+  UofN: {
+
+    subtitle: "Training & Schools",
+
+    color: "uofn-color",
+
+    departments: [
+
+      ["DTS", "Laura Butcher"],
+
+      ["DBS", "Ane / Luciano"],
+
+      ["Mission Adventures", "Higor / Carol"],
+
+      ["Bible / Online BCC", "Patrick"]
+
+    ]
+
+  },
+
+
+  GO: {
+
+    subtitle: "Projects & Outreach",
+
+    color: "go-color",
+
+    departments: [
+
+      ["GO28+", "Fabio / Ana / Kristen"],
+
+      ["Hollywood", "Kristen"],
+
+      ["Venice", "Team"],
+
+      ["Neighborhood", "Team"],
+
+      ["OBT / Jesus Film", "Luciano / Ane"],
+
+      ["Justice for the Unborn", "Helena"],
+
+      ["Global Partners", "Designated Staff"]
+
+    ]
+
+  },
+
+
+  Campus: {
+
+    subtitle: "Community & Operations",
+
+    color: "campus-color",
+
+    departments: [
+
+      ["Member Care", "Ane / Adriana Costa"],
+
+      ["Hospitality", "Ana"],
+
+      ["Guest House", "Juliana"],
+
+      ["Housing", "Juliana"],
+
+      ["Facilities", "Paul"],
+
+      ["Maintenance", "Paul Bertelsen"],
+
+      ["Grounds", "Simeon"],
+
+      ["Ship-Shape", "Simeon"],
+
+      ["Transportation", "Simeon"],
+
+      ["Kitchen", "Marcelo / Joana / Ana"],
+
+      ["Reception", "Ann Marie"],
+
+      ["Coffee Shop", "Mary"]
+
+    ]
+
+  }
+
+};
+
+
+
+function openArea(areaName) {
+
+  const area = areas[areaName];
+
+  document.getElementById("home").style.display = "none";
+
+  document.getElementById("details").style.display = "block";
+
+
+  document.getElementById("areaTitle").textContent =
+    areaName;
+
+
+  document.getElementById("areaSubtitle").textContent =
+    area.subtitle;
+
+
+  const header =
+    document.getElementById("areaHeader");
+
+
+  header.className =
+    "area-header " + area.color;
+
+
+  const list =
+    document.getElementById("departmentList");
+
+
+  list.innerHTML = "";
+
+
+  area.departments.forEach(function(item) {
+
+    const department =
+      document.createElement("div");
+
+
+    department.className =
+      "department";
+
+
+    department.innerHTML = `
+
+      <div class="department-name">
+        ${item[0]}
+      </div>
+
+      <div class="department-person">
+        ${item[1]}
+      </div>
+
+    `;
+
+
+    list.appendChild(department);
+
+  });
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+
+}
+
+
+
+function goHome() {
+
+  document.getElementById("details").style.display =
+    "none";
+
+
+  document.getElementById("home").style.display =
+    "block";
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>
