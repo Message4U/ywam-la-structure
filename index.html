@@ -237,6 +237,20 @@
       color: #666;
     }
 
+    .department-email {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin-top: 5px;
+      padding: 4px 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #326460;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+    }
+
     /* MOBILE */
 
     @media (max-width: 420px) {
@@ -398,13 +412,14 @@ const areas = {
     color: "go-color",
 
     departments: [
-      ["GO28+", "Fabio / Ana / Kristen"],
-      ["Hollywood", "Kristen"],
-      ["Venice", "Team"],
-      ["Neighborhood", "Team"],
-      ["OBT / Jesus Film", "Luciano / Ane"],
-      ["Justice for the Unborn", "Helena"],
-      ["Global Partners", "Designated Staff"]
+      ["GO28+","Fabio & Ana Pelacio","go28@ywamla.org"],
+      ["Hollywood","Kristen Hurley","goteam@ywamla.org"],
+      ["Venice Beach","Go Team","goteam@ywamla.org"],
+      ["Neighborhood","Go Team","goteam@ywamla.org"],
+      ["Sports","Fabio Pelacio / Alicia & Marcelo","sports@ywamla.org"],
+      ["OBT - Jesus Film","Luciano Duarte"],
+      ["Justice for the Unborn","Helena Buswell","helenab@ywamla.org"],
+      ["Global Partners","Designated Staff"]
     ]
 
   },
@@ -476,6 +491,14 @@ function openArea(areaName) {
         ${item[1]}
       </div>
     `;
+
+    if (item[2]) {
+      const email = document.createElement("a");
+      email.className = "department-email";
+      email.href = "mailto:" + item[2];
+      email.textContent = item[2];
+      department.appendChild(email);
+    }
 
     list.appendChild(department);
 
