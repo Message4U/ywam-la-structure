@@ -433,18 +433,18 @@ const areas = {
     color: "campus-color",
 
     departments: [
-      ["Member Care", "Ane / Adriana Costa"],
-      ["Hospitality", "Ana"],
-      ["Guest House", "Juliana"],
-      ["Housing", "Juliana"],
-      ["Facilities", "Paul"],
-      ["Maintenance", "Paul Bertelsen"],
-      ["Grounds", "Simeon"],
-      ["Ship-Shape", "Simeon"],
-      ["Transportation", "Simeon"],
-      ["Kitchen", "Marcelo / Joana / Ana"],
-      ["Reception", "Ann Marie"],
-      ["Coffee Shop", "Mary"]
+      ["Member Care","Ane Duarte / Adriana Costa","membercare@ywamla.org"],
+      ["Hospitality","Ana Pelacio","ana@ywamla.org"],
+      ["Guest House","Juliana Sardemberg","guesthousing@ywamla.org"],
+      ["Housing","Juliana Sardemberg","julianas@ywamla.org"],
+      ["Facilities","Paul Bertelsen",null,"+1(503)432-6442"],
+      ["Maintenance","Paul Bertelsen",null,"+1(503)432-6442"],
+      ["Grounds","Simeon Bertelsen","sbertelsen@ywamla.org"],
+      ["Shipshape","Simeon Bertelsen"],
+      ["Transportation","Simeon"],
+      ["Kitchen","Marcelo / Joana / Ana"],
+      ["Reception","Ann Marie"],
+      ["Coffee Shop","Mary"]
     ]
 
   }
@@ -500,6 +500,14 @@ function openArea(areaName) {
       email.href = "mailto:" + item[2];
       email.textContent = item[2];
       department.appendChild(email);
+    }
+
+    if (item[3]) {
+      const phone = document.createElement("a");
+      phone.className = "department-email";
+      phone.href = "tel:" + item[3].replace(/[^+0-9]/g, "");
+      phone.textContent = item[3];
+      department.appendChild(phone);
     }
 
     list.appendChild(department);
